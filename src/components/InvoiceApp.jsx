@@ -1,4 +1,5 @@
 import { getInvoiceService } from "../services/getInvoiceService"
+import { InvoiceView } from "./InvoiceView";
 
 export const InvoiceApp = () => {
   const { id, name, client, company, items } = getInvoiceService();
@@ -13,11 +14,10 @@ export const InvoiceApp = () => {
           Ejemplo Factura
         </div>
         <div className="card-body">
-          <ul className="list-group">
-            <li className="list-group-item">Id: { id }</li>
-            <li className="list-group-item">Name: { name }</li>
-          </ul>
-          
+          <InvoiceView
+            id={id}
+            name={name}
+          />
           <div className="row my-3">
             <div className="col">
               <h3>Datos de el cliente</h3>
