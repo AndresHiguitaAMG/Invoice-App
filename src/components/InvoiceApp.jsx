@@ -2,6 +2,7 @@ import { getInvoiceService } from "../services/getInvoiceService"
 import { ClientView } from "./ClientView";
 import { CompanyView } from "./CompanyView";
 import { InvoiceView } from "./InvoiceView";
+import { ListItemsView } from "./ListItemsView";
 
 export const InvoiceApp = () => {
   const { id, name, client, company, items } = getInvoiceService();
@@ -33,29 +34,10 @@ export const InvoiceApp = () => {
               />
             </div>
           </div>
-          
-          <h4>Productos de la factura</h4>
-          <table className="table table-striped table-hover">
-            <thead>
-              <tr>
-                <th>Producto</th>
-                <th>Cantidad</th>
-              </tr>
-              </thead>
-              <tbody>
-                {
-                items.map(({ id, product, price, quantity }) => (
-                  // eslint-disable-next-line react/jsx-key
-                  <tr key={ id }>
-                    <td>{ product }</td>
-                    <td>{ price }</td>
-                    <td>{ quantity }</td>
-                  </tr>
-                  )
-               )
-            }
-            </tbody>
-            </table>
+          <ListItemsView
+            items={items}
+            title="Productos de la factura"
+          />
         </div>
       </div>
     </div>
