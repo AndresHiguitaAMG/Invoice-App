@@ -1,8 +1,9 @@
+import PropTypes from "prop-types";
+
 /* eslint-disable react/prop-types */
 export const ClientView = ({ title, client }) => {
-    const { name: nameClient, lastName, addres } = client;
-    const { country, city, street, number } = addres;
-
+  const { name: nameClient, lastName, addres: { country, city, street, number } } = client;
+  
   return (
     <>
         <h3>{title}</h3>
@@ -14,4 +15,9 @@ export const ClientView = ({ title, client }) => {
         </ul>
     </>
   )
+};
+
+ClientView.propTypes = {
+  title: PropTypes.string.isRequired,
+  client: PropTypes.object.isRequired,
 }

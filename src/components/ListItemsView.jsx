@@ -1,4 +1,5 @@
 import { RowItemView } from "./RowItemView"
+import PropTypes from "prop-types";
 
 /* eslint-disable react/prop-types */
 export const ListItemsView = ({ title, items }) => {
@@ -29,4 +30,9 @@ export const ListItemsView = ({ title, items }) => {
             </table>
     </>
   )
+};
+
+ListItemsView.propTypes = {
+  title: PropTypes.string.isRequired,
+  items: PropTypes.array.isRequired,
 }

@@ -1,3 +1,6 @@
+import PropTypes from "prop-types";
+
+
 /* eslint-disable react/prop-types */
 export const CompanyView = ({ title, company }) => {
     const { name, fiscalNumber } = company;
@@ -11,4 +14,9 @@ export const CompanyView = ({ title, company }) => {
         </ul>
     </div>
   )
+};
+
+CompanyView.propTypes = {
+    title: PropTypes.string.isRequired,
+    company: PropTypes.object.isRequired,
 }
