@@ -1,10 +1,10 @@
 import { getInvoiceService } from "../services/getInvoiceService"
+import { ClientView } from "./ClientView";
+import { CompanyView } from "./CompanyView";
 import { InvoiceView } from "./InvoiceView";
 
 export const InvoiceApp = () => {
   const { id, name, client, company, items } = getInvoiceService();
-  const { name: nameClient, lastName, addres } = client;
-  const { country, city, street, number } = addres;
   
   return (
     <>
@@ -20,21 +20,17 @@ export const InvoiceApp = () => {
           />
           <div className="row my-3">
             <div className="col">
-              <h3>Datos de el cliente</h3>
-              <ul className="list-group">
-                <li className="list-group-item active">{ nameClient } { lastName }</li>
-                <li className="list-group-item">{ country } / { city }</li>
-                <li className="list-group-item">{ street }</li>
-                <li className="list-group-item">{ number }</li>
-              </ul>
+              <ClientView 
+                client={client}
+                title="Datos de el cliente"
+              />
             </div>
             
             <div className="col">
-              <h3>Datos de la empresa</h3>
-              <ul className="list-group">
-                <li className="list-group-item active">{ company.name }</li>
-                <li className="list-group-item">{ company.fiscalNumber }</li>
-              </ul>
+              <CompanyView 
+                company={company}
+                title="Datos de la empresa"
+              />
             </div>
           </div>
           
